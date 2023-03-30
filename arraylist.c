@@ -73,6 +73,7 @@ void* pop(ArrayList * l, int i){
     }
 
   l->size--;
+  
   return aux;
 }
 
@@ -82,5 +83,6 @@ int get_size(ArrayList * l){
 
 //remove elements
 void clean(ArrayList * l){
-    
+    free(l);
+    l = createList();
 }
