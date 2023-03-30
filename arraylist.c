@@ -51,14 +51,29 @@ void* get(ArrayList * l, int i){
   if(i >= l->size) return NULL;
   if(i < 0)
   {
-    return l->data[i+l->size];
+    return l->data[i+l->size]; 
   }
   return l->data[i];
 }
 
 
 void* pop(ArrayList * l, int i){
-    return NULL;
+  
+  if(l->size == 0) return NULL;
+  
+  if(i < 0){
+    i = i+l->size;
+  }
+
+  void* aux = l->data[i];
+
+  for(int j = i ; j < l->size ; j++)
+    {
+      l->data[j] = l->data[j+1];
+    }
+
+  l->size--;
+  return aux;
 }
 
 int get_size(ArrayList * l){
